@@ -8,6 +8,6 @@ lazy val root = (project in file("."))
       "-deprecation"
     ),
     libraryDependencies ++= Seq(
-      "com.amazonaws" % "aws-java-sdk-dynamodb" % "1.12.4"
+      "software.amazon.awssdk" % "dynamodb" % "2.16.83"
     )
   )
