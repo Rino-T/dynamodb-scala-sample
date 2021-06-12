@@ -1,5 +1,7 @@
+import com.amazonaws.services.dynamodbv2.{AmazonDynamoDB, AmazonDynamoDBClientBuilder}
+
 object Main {
   def main(args: Array[String]): Unit = {
-    println("Hello World")
+    val client: AmazonDynamoDB = AmazonDynamoDBClientBuilder.defaultClient()
   }
 }

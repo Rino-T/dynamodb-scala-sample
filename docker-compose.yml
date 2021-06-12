@@ -1,0 +1,35 @@
+# https://docs.aws.amazon.com/ja_jp/amazondynamodb/latest/developerguide/DynamoDBLocal.DownloadingAndRunning.html
+# https://hackers-high.com/aws/dynamodb-local-development/
+version: '3.8'
+services:
+  dynamodb-local:
+    command: "-jar DynamoDBLocal.jar -sharedDb -optimizeDbBeforeStartup -dbPath ./data"
+    image: amazon/dynamodb-local:latest
+    container_name: dynamodb-local
+    user: root
+    ports:
+      - 8000:8000
+    volumes:
+      - dynamodb-local-data:/home/dynamodblocal/data
+    working_dir: /home/dynamodblocal
+    networks:
+      - dynamodb-local-network
+
+  dynamodb-admin:
+    container_name: dynamodb_admin
+    image: aaronshaf/dynamodb-admin:latest
+    environment:
+      - DYNAMO_ENDPOINT=dynamodb-local:8000
+    ports:
+    - 8001:8001
+    depends_on:
+      - dynamodb-local
+    networks:
+      - dynamodb-local-network
+
+volumes:
+  dynamodb-local-data:
+
+networks:
+  dynamodb-local-network:
+    driver: bridge
