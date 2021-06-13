@@ -4,10 +4,11 @@ import software.amazon.awssdk.services.dynamodb.model._
 import java.net.URI
 import scala.util.{Failure, Success, Try}
 
-object Main {
+object CreateTableWithSimplePrimaryKey {
   def main(args: Array[String]): Unit = {
     val client: DynamoDbClient = DynamoDbClient.builder().endpointOverride(URI.create("http://localhost:8000")).build()
     createTable(client, "roles", "role_id")
+    client.close()
   }
 
   /** シンプルなプライマリーキー `tableName` をもつテーブルを生成する
