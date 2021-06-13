@@ -1,3 +1,5 @@
+package table
+
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient
 import software.amazon.awssdk.services.dynamodb.model.{
   DeleteTableRequest,

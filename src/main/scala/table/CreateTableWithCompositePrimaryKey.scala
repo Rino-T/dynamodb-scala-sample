@@ -1,13 +1,7 @@
+package table
+
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient
-import software.amazon.awssdk.services.dynamodb.model.{
-  AttributeDefinition,
-  CreateTableRequest,
-  DynamoDbException,
-  KeySchemaElement,
-  KeyType,
-  ProvisionedThroughput,
-  ScalarAttributeType
-}
+import software.amazon.awssdk.services.dynamodb.model._
 
 import java.net.URI
 import scala.util.chaining.scalaUtilChainingOps

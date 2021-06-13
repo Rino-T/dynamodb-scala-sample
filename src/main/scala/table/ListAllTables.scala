@@ -1,8 +1,10 @@
+package table
+
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient
 import software.amazon.awssdk.services.dynamodb.model.{DynamoDbException, ListTablesRequest}
 
 import java.net.URI
-import scala.jdk.CollectionConverters.ListHasAsScala
+import scala.jdk.CollectionConverters.IterableHasAsScala
 import scala.util.{Failure, Success, Try}
 
 object ListAllTables {
